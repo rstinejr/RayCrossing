@@ -71,14 +71,7 @@ bool rightRayCrosses(const Point& p, const Point& r1, const Point& r2)
 
         cout << "Polar cosine of ray: " << polarRay << ", of point: " << polarPt << endl;
 
-        if (lower.first > p.first)
-        {
-            rtn = polarPt > polarRay;
-        }
-        else
-        {
-            rtn = polarRay > polarPt;
-        }
+        rtn = polarPt < polarRay;
     }
 
     return rtn;
@@ -86,21 +79,13 @@ bool rightRayCrosses(const Point& p, const Point& r1, const Point& r2)
 
 int main(int argc, char *argv[])
 {
-    Point orig = make_pair(2, 2);
-    Point rmt  = make_pair(3, 3);
-
-    double polarCos = polarCosine(orig, rmt);
-
-    cout << "Polar cosine, (2,2) - (3,3): " << polarCos << endl;
-
-    rmt = make_pair(1, 3);
-    cout << "Polar cosine, (2,2) - (1,3): " << polarCosine(orig, rmt) << endl;
-
     Point p0 = make_pair(5, 7);
 
     Point rl0 = make_pair(2, 11);
     Point rr0 = make_pair(15, 2);
 
+    cout << "Determine if horizontal ray from (" << p0.first << "," << p0.second << ") croses segment, " << endl;
+    cout << "    (" << rl0.first << "," << rl0.second << ") - (" << rr0.first << "," << rr0.second << ")" << endl;
     cout << "Ray crosses? " << rightRayCrosses(p0, rl0, rr0) << endl;
     
     cout << "Done." << endl;
