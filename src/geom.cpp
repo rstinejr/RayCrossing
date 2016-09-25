@@ -4,13 +4,12 @@
 *
 * Avoid using trig library functions.
 */
+
+#include <geom.h>
+
 #include <cmath>
-#include <iostream>
-#include <utility>
 
 using namespace std;
-
-typedef pair<long, long> Point;
 
 /*
 * Law of cosines: a**2 = b**2 + c**2 - 2bc(cos(alpha))
@@ -22,7 +21,6 @@ typedef pair<long, long> Point;
 */
 double polarCosine(const Point& origin, const Point& p2)
 {
-   Point synth = make_pair(1, 0);
    Point rmt   = make_pair(p2.first - origin.first, p2.second - origin.second);
 
    long aSquared = (rmt.second * rmt.second) + (rmt.first - 1) * (rmt.first - 1);
@@ -69,25 +67,8 @@ bool rightRayCrosses(const Point& p, const Point& r1, const Point& r2)
         double polarRay = polarCosine(lower, higher);
         double polarPt  = polarCosine(lower, p);
 
-        cout << "Polar cosine of ray: " << polarRay << ", of point: " << polarPt << endl;
-
         rtn = polarPt < polarRay;
     }
 
     return rtn;
-}
-
-int main(int argc, char *argv[])
-{
-    Point p0 = make_pair(5, 7);
-
-    Point rl0 = make_pair(2, 11);
-    Point rr0 = make_pair(15, 2);
-
-    cout << "Determine if horizontal ray from (" << p0.first << "," << p0.second << ") croses segment, " << endl;
-    cout << "    (" << rl0.first << "," << rl0.second << ") - (" << rr0.first << "," << rr0.second << ")" << endl;
-    cout << "Ray crosses? " << rightRayCrosses(p0, rl0, rr0) << endl;
-    
-    cout << "Done." << endl;
-    return 0;
 }
