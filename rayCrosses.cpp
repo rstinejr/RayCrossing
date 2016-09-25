@@ -54,7 +54,31 @@ bool rightRayCrosses(const Point& p, const Point& r1, const Point& r2)
     }
     else
     {
-        rtn = false;
+        Point lower, higher;
+
+        if (r1.second < r2.second)
+        {
+            lower = r1;
+            higher = r2;
+        }
+        else
+        {
+            lower  = r2;
+            higher = r1;
+        }                 
+        double polarRay = polarCosine(lower, higher);
+        double polarPt  = polarCosine(lower, p);
+
+        cout << "Polar cosine of ray: " << polarRay << ", of point: " << polarPt << endl;
+
+        if (lower.first > p.first)
+        {
+            rtn = polarPt > polarRay;
+        }
+        else
+        {
+            rtn = polarRay > polarPt;
+        }
     }
 
     return rtn;
@@ -68,6 +92,9 @@ int main(int argc, char *argv[])
     double polarCos = polarCosine(orig, rmt);
 
     cout << "Polar cosine, (2,2) - (3,3): " << polarCos << endl;
+
+    rmt = make_pair(1, 3);
+    cout << "Polar cosine, (2,2) - (1,3): " << polarCosine(orig, rmt) << endl;
 
     Point p0 = make_pair(5, 7);
 
