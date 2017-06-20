@@ -1,7 +1,7 @@
 ## Ray Crossing Project
 
 This project is a little fun with geometry.  I as puzzling over the issue of how to determine whether or not
-a point is within a simple polygog or outside of it.
+a point is within a simple polygon.
 
 I did not come up with an answer on my own, but Google suggests that one approach is to extend a ray in any direction from the point
 and count the number of times the ray crosses the polygon's border.  An odd number indicates that the point is interior, while
