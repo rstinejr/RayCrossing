@@ -19,7 +19,7 @@ Some points in the remaining horizontal strip would emit rays that intersect the
 sheep from goats?
 
 Here I borrowed from the [Grahm scan algorithm](https://en.wikipedia.org/wiki/Graham_scan). One of the points of the segment will be 
-as lower than the other. From this point, if sweeping from the remote endpoint to the test point is a clockwise motion, then the point
+lower than the other. From this point, if sweeping from the remote endpoint to the test point is a clockwise motion, then the point
 is to the right of the segment, and a horizontal ray from it will miss.  But if the point is to the left of the segment, then the 
 ray will intersect.
 
