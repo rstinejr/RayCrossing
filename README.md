@@ -13,7 +13,7 @@ So.... how do you tell whether a ray crosses a line?  And to simplify calculatio
 extending to the right from the point in question.
 
 For starters, we know that if both endpoints of the sement are above the point, then the horizontal ray will pass under the segment
-without intersecting it.  The ray will also miss if point endpoints are below the point, or both to the right of the point.
+without intersecting it.  The ray will also miss if point endpoints are below the point, or both to the left of the point.
 
 Some points in the remaining horizontal strip would emit rays that intersect the segment, but not all.  So how do we distinguish 
 sheep from goats?
